@@ -3,6 +3,9 @@ from django.contrib import admin
 
 from .conf import settings
 from .models import Cookie, CookieGroup, LogItem
+from modeltranslation.admin import TabbedTranslationAdmin
+from cookie_consent.models import Cookie, CookieGroup, LogItem
+from .translation import CookieGroupTranslationOptions
 
 
 class CookieAdmin(admin.ModelAdmin):
@@ -12,7 +15,7 @@ class CookieAdmin(admin.ModelAdmin):
     list_filter = ("cookiegroup",)
 
 
-class CookieGroupAdmin(admin.ModelAdmin):
+class CookieGroupAdmin(TabbedTranslationAdmin):
     list_display = ("varname", "name", "is_required", "is_deletable", "get_version")
     search_fields = (
         "varname",
