@@ -107,7 +107,6 @@
                 const head = document.head;
 
                 {% for cookie_group_varname in cookie_groups %}
-                    console.log("Checking {{ cookie_group_varname }} cookies");
                     if (data.acceptedCookieGroups.includes("{{ cookie_group_varname }}")) {
                         // Load cookie scripts if not already loaded
                         if (!document.querySelector('script[data-cookie-group="{{ cookie_group_varname }}"]')) {
@@ -115,21 +114,17 @@
                             script.src = "{% static 'cookie_consent/cookies/' %}{{ cookie_group_varname }}.js";
                             script.setAttribute("data-cookie-group", "{{ cookie_group_varname }}");
                             script.onload = function() {
-                                console.log("{{ cookie_group_varname }} cookies script loaded");
                             };
                             head.appendChild(script);
                         } else {
                             // If script is already loaded, just run checkCookie()
-                            console.log("{{ cookie_group_varname }} cookies script already loaded");
                         }
                     } else if (data.declinedCookieGroups.includes("{{ cookie_group_varname }}")) {
                         // Remove existing cookie scripts if cookies are declined
                         const existingScripts = document.querySelectorAll('script[data-cookie-group="{{ cookie_group_varname }}"]');
                         existingScripts.forEach(script => script.remove());
-                        console.log("{{ cookie_group_varname }} cookies script removed");
                     } else {
                         // Optionally handle not set state
-                        console.log("{{ cookie_group_varname }} cookies script not set");
                     }
                 {% endfor %}
 

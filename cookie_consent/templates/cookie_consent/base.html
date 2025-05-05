@@ -21,7 +21,7 @@
           fetch(acceptAllUrl, {
               method: 'POST',
               headers: {
-                  'Content-Type': 'application/json',
+                  'Content-Type': 'application/x-www-form-urlencoded',
                   'X-CSRFToken': '{{ csrf_token }}'
               }
           }).then(() => {
@@ -36,7 +36,7 @@
           fetch(declineAllUrl, {
               method: 'POST',
               headers: {
-                  'Content-Type': 'application/json',
+                  'Content-Type': 'application/x-www-form-urlencoded',
                   'X-CSRFToken': '{{ csrf_token }}'
               }
           }).then(() => {
