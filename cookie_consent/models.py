@@ -184,6 +184,9 @@ class LogItem(models.Model):
     )
     version = models.CharField(_("Version"), max_length=32)
     created = models.DateTimeField(_("Created"), auto_now_add=True, blank=True)
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
+    country = models.CharField(max_length=255, blank=True)
+    user_agent = models.TextField(blank=True)
 
     def __str__(self):
         return "%s %s" % (self.cookiegroup.name, self.version)

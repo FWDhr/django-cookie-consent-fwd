@@ -28,9 +28,9 @@ class CookieGroupAdmin(TabbedTranslationAdmin):
 
 
 class LogItemAdmin(admin.ModelAdmin):
-    list_display = ("action", "cookiegroup", "version", "created")
+    list_display = ("action", "cookiegroup", "ip_address", "country", "user_agent", "version", "created")
     list_filter = ("action", "cookiegroup")
-    readonly_fields = ("action", "cookiegroup", "version", "created")
+    readonly_fields = ("action", "cookiegroup", "version", "created", "ip_address", "country", "user_agent")
     date_hierarchy = "created"
 
 
