@@ -109,11 +109,13 @@ from the `docs` directory in this repository.
     ]
     ```
 
-5. Add next 2 lines to the Django `settings.py` file:
+5. Add next configuration lines to the Django `settings.py` file:
 
     ```python
     COOKIE_CONSENT_SECURE = True
     COOKIE_CONSENT_SAMESITE = 'Strict'
+    # Optionally show all cookie names under cookie group description:
+    SHOW_COOKIE_NAMES_IN_MODAL = True # Default False
     ```
 
 6. Include `django-cookie-consent` urls in `urls.py` :

@@ -59,7 +59,7 @@
 #close-modal {
   position: absolute;
   top: 16px;
-  right: 22px;
+  right: 20px;
   transition: transform 0.1s ease, fill 0.2s ease;
 }
 

@@ -78,21 +78,13 @@
         });
       }
 
-      function onAccept(event, cookieGroups) {
-        parent.handleCookies();
-      }
-
-      function onDecline(event, cookieGroups) {
-        parent.handleCookies();
-      }
-
       document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('cookieConsentAccept', function(event) {
-          onAccept(event, event.detail.cookieGroups);
+          parent.handleCookies();
         });
 
         document.addEventListener('cookieConsentDecline', function(event) {
-          onDecline(event, event.detail.cookieGroups);
+          parent.handleCookies();
         });
       });
     </script>
