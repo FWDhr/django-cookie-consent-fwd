@@ -1,3 +1,8 @@
+Django Cookie Consent FWD
+
+Enhanced version of django-cookie-consent with additional features.
+Based on django-cookie-consent by Bojan Mihelac.
+
 Copyright (c) Bojan Mihelac and individual contributors.
 All rights reserved.
 
