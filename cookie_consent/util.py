@@ -80,6 +80,22 @@ def get_cookie_groups(varname=None):
     return [g for k, g in all_cookie_groups().items() if k in keys]
 
 
+def anonymize_ip(ip):
+    """Anonymize IP by replacing last octet with zeros"""
+    if not ip:
+        return None
+    try:
+        # Handle IPv4
+        if '.' in ip:
+            return '.'.join(ip.split('.')[:3] + ['0'])
+        # Handle IPv6
+        if ':' in ip:
+            return ':'.join(ip.split(':')[:-1] + ['0000'])
+        return None
+    except:
+        return None
+
+
 def accept_cookies(request, response, varname=None):
     """
     Accept cookies in Cookie Group specified by ``varname``.
@@ -92,6 +108,9 @@ def accept_cookies(request, response, varname=None):
                 action=ACTION_ACCEPTED,
                 cookiegroup=cookie_group,
                 version=cookie_group.get_version(),
+                ip_address=anonymize_ip(request.META.get('REMOTE_ADDR')),
+                country=request.META.get('HTTP_CF_IPCOUNTRY', ''),
+                user_agent=request.META.get('HTTP_USER_AGENT', '')
             )
     set_cookie_dict_to_response(response, cookie_dic)
 
@@ -115,6 +134,9 @@ def decline_cookies(request, response, varname=None):
                 action=ACTION_DECLINED,
                 cookiegroup=cookie_group,
                 version=cookie_group.get_version(),
+                ip_address=anonymize_ip(request.META.get('REMOTE_ADDR')),
+                country=request.META.get('HTTP_CF_IPCOUNTRY', ''),
+                user_agent=request.META.get('HTTP_USER_AGENT', '')
             )
     set_cookie_dict_to_response(response, cookie_dic)
 
