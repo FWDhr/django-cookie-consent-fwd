@@ -4,6 +4,7 @@ from django.contrib import admin
 from .conf import settings
 from .models import Cookie, CookieGroup, LogItem
 from modeltranslation.admin import TabbedTranslationAdmin
+from .translation import CookieGroupTranslationOptions
 
 
 class CookieAdmin(admin.ModelAdmin):
