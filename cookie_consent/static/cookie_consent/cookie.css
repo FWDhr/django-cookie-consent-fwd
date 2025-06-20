@@ -1,14 +1,14 @@
 /* COOKIE BUTTON */
-#cookies-icon:hover .cookie-icon {
+.cookies-icon:hover .cookie-icon {
   transition: 0.3s ease;
   transform: scale(1.2);
 }
 
-#cookies-icon .cookie-icon {
+.cookies-icon .cookie-icon {
   transition: transform 0.2s ease-out;
 }
 
-#cookies-icon {
+.cookies-icon {
   background: transparent;
   border: 0;
   bottom: 0;
@@ -20,7 +20,7 @@
   z-index: 1000;
 }
 
-#cookies-icon.cookies-icon--left {
+.cookies-icon.cookies-icon--left {
   left: 0;
 }
 

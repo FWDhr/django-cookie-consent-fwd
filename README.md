@@ -61,17 +61,42 @@ from the `docs` directory in this repository.
 
 ## Table of Contents
 
+- [Swaping django-cookie-consent](#swapping-django-cookie-consent)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Adapting for specific use cases](#adapting-for-specific-use-cases)
 - [Troubleshooting](#troubleshooting)
+
+## Swapping django-cookie-consent
+
+If swapping from [django-cookie-consent](https://pypi.org/project/django-cookie-consent/) do these steps for instalation:
+
+1. Uninstall the old [django-cookie-consent](https://pypi.org/project/django-cookie-consent/) package:
+
+    ```bash
+    pip uninstall django-cookie-consent
+    ```
+
+2. Install [django-cookie-consent-fwd](https://test.pypi.org/project/django-cookie-consent-fwd/):
+
+    ```bash
+    pip install django-cookie-consent-fwd
+    ```
+
+3. Run the following management commands to update your database tables with the new modeltranslation fields:
+
+    ```bash
+    python manage.py makemigrations cookie_consent
+    python manage.py migrate cookie_consent
+    ```
+
 
 ## Installation
 
 1. Install the [django-cookie-consent-fwd](https://test.pypi.org/project/django-cookie-consent-fwd/) package in your virtual environment:
 
     ```bash
-    pip install -i https://test.pypi.org/simple/ django-cookie-consent-fwd
+    pip install django-cookie-consent-fwd
     ```
 
 2. Add the following to your requirements.txt:
