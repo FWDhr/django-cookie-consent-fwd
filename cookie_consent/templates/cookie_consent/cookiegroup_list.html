@@ -8,7 +8,7 @@
     {% trans 'This is a list of the categories of cookies used in our website and why we use them.' %}
   </p>
 
-  <span style="margin-bottom: 16px;">
+  {% comment %} <span style="margin-bottom: 16px;">
     {% trans 'For more information, please read:' %}
     <a class="custom-privacy-statement-link"
       target="_blank"
@@ -22,7 +22,7 @@
         </svg>
       </span>
     </a>
-  </span>
+  </span> {% endcomment %}
 
   <div>
     <button onClick="acceptAllCookies()" class="bg-show"><span>{% trans 'Accept all' %}</span></button>
