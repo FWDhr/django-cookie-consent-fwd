@@ -59,6 +59,14 @@ from the `docs` directory in this repository.
 **Documentation for django-cookie-consent-fwd forked package:**
 ---------------------------------------------------------------
 
+**Features added in the fork:**
+
+* Adding and removing cookie scripts without requiring a page refresh on cookie accept or decline
+* Viewing cookie groups in modal/dialog instead of navigating to a new page
+* Custom styles for the cookie icon and modal/dialog content
+* Model translation support for cookie groups
+* Expanded logging to include more non-identifiable data on cookie acceptance or decline
+
 ## Table of Contents
 
 - [Swaping django-cookie-consent](#swapping-django-cookie-consent)

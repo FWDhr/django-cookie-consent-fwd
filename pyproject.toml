@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-cookie-consent-fwd"
-version = "0.6.2"
+version = "0.6.3"
 description = "Django cookie consent application"
 authors = [
     {name = "Informatika Mihelac", email = "bmihelac@mihelac.org"}
@@ -68,6 +68,15 @@ release = [
 [tool.setuptools.packages.find]
 include = ["cookie_consent*"]
 namespaces = true
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"cookie_consent" = [
+    "locale/*/LC_MESSAGES/*.po",
+    "locale/*/LC_MESSAGES/*.mo",
+]
 
 [tool.isort]
 profile = "black"
